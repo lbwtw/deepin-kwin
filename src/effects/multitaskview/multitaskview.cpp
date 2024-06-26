@@ -524,7 +524,8 @@ MultiViewWinFill::MultiViewWinFill(EffectScreen *screen, QRect rect, float radiu
 {
     m_fillFrame = effectsEx->effectFrameEx("deepin-kwin/effects/multitaskview/qml/hoverbg.qml", false);
     m_fillFrame->setGeometry(rect);
-    m_fillFrame->setColor("#A0A0A0");
+    // m_fillFrame->setColor("#A0A0A0");
+    m_fillFrame->setColor("transparent");
     m_fillFrame->setRadius(5);
 }
 
@@ -1132,19 +1133,19 @@ void MultitaskViewEffect::paintWindow(EffectWindow *w, int mask, QRegion region,
 
                     if (w == m_hoverWin) {
                         float radius = wmm->getWindowRadius(w);
-                        if (wmm->isWindowFill(w) && wmobj->isHaveWinFill(w)) {
-                            renderHover(w, wmobj->getWinFill(w)->getRect(), 0, radius);
-                        } else {
+                        // if (wmm->isWindowFill(w) && wmobj->isHaveWinFill(w)) {
+                        //     renderHover(w, wmobj->getWinFill(w)->getRect(), 0, radius);
+                        // } else {
                             renderHover(w, geo.toRect(), 0, radius);
-                        }
+                        // }
                     }
 
                     if (w == m_hoverWinBtn) {
-                        if (wmm->isWindowFill(w) && wmobj->isHaveWinFill(w)) {
-                            renderHover(w, wmobj->getWinFill(w)->getRect(), 1);
-                        } else {
-                            renderHover(w, geo.toRect(), 1);
-                        }
+                        // if (wmm->isWindowFill(w) && wmobj->isHaveWinFill(w)) {
+                        //     renderHover(w, wmobj->getWinFill(w)->getRect(), 1);
+                        // } else {
+                             renderHover(w, geo.toRect(), 1);
+                        // }
                     }
                 }
             }
